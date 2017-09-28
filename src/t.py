@@ -13,8 +13,8 @@ so that you can connect bluetooth module immidietely
 '''
 print(info)
 device = ('20:15:02:26:12:10', 'HC-05')
-bd_addr = device[0]
-port = 1
+bd_addr = device[0] 
+port = 1 
 sleep(1)
 
 
@@ -40,15 +40,11 @@ class SampleListener(Leap.Listener):
         for hand in frame.hands:
             flag = b"H" if hand.is_left else b"L"
             direction = hand.direction
-            a = []
-            angles = [direction.pitch * Leap.RAD_TO_DEG,
-            direction.roll * Leap.RAD_TO_DEG,
-            direction.yaw * Leap.RAD_TO_DEG]
-            for angle in angles: a.append(self.deal(angle))
-            data = flag + a[0] + a[1]
-            self.sock.send(data)
-            print(data)
-            sleep(0.1)
+            for i in range(150):
+                data = flag + chr(i) + chr(i)
+                print(data)
+                self.sock.send(data)
+                sleep(0.1)
 
     def deal(self, raw_num):
         n = int(raw_num)
