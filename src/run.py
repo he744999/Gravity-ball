@@ -18,9 +18,7 @@ port = 1
 sleep(1)
 
 
-class SampleListener(Leap.Listener):
-
-    def on_init(self, controller):
+class SampleListener(Leap.Listener): def on_init(self, controller):
         self.sock = bt.BluetoothSocket(bt.RFCOMM)
         self.sock.connect((bd_addr, port))
         print("Initialized...")
