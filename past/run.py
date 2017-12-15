@@ -7,11 +7,6 @@ sys.path.insert(0, "../lib")
 import Leap 
 import bluetooth as bt
 from time import sleep 
-info = '''
-you need run get_mac_addr.py first to get the bluetooth mac addr
-so that you can connect bluetooth module immidietely
-'''
-print(info)
 device = ('20:15:02:26:12:10', 'HC-05')
 bd_addr = device[0]
 port = 1
